@@ -1,0 +1,41 @@
+{
+  "name": "virtualtrader",
+  "version": "1.0.0",
+  "description": "virtual trading simulator",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node src/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isaackrementsov/virtual-trader.git"
+  },
+  "keywords": [
+    "virtual",
+    "trade",
+    "sell",
+    "buy"
+  ],
+  "author": "Isaac Krementsov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/isaackrementsov/virtual-trader/issues"
+  },
+  "homepage": "https://github.com/isaackrementsov/virtual-trader#readme",
+  "dependencies": {
+    "@types/express": "^4.17.0",
+    "@types/express-session": "^1.15.13",
+    "@types/node": "^12.6.6",
+    "body-parser": "^1.19.0",
+    "connect-redis": "^3.4.1",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "mysql": "^2.17.1",
+    "path": "^0.12.7",
+    "random-key": "^0.3.2",
+    "redis": "^2.8.0",
+    "typeorm": "^0.2.18"
+  }
+}
