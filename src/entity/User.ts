@@ -1,4 +1,5 @@
-import {Entity, PrimaryGeneratedColumn, Column, ManyToOne} from 'typeorm';
+import {Entity, PrimaryGeneratedColumn, Column, OneToMany} from 'typeorm';
+import Share from './Share';
 
 @Entity()
 export default class User {
@@ -12,11 +13,18 @@ export default class User {
     password : string;
     @Column()
     admin : boolean;
+    @Column()
+    balance : number;
 
-    constructor(u : string, p : string, a : boolean){
+    @OneToMany(type => Share, share => share.user)
+    shares : Share[];
+
+    constructor(u : string, p : string, a : boolean, b : number, s : Share[]){
         this.username = u;
         this.password = p;
         this.admin = a;
+        this.balance = b;
+        this.shares = s;
     }
 
 }

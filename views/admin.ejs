@@ -1,0 +1,32 @@
+<% include partials/header %>
+<h1>Admin Dashboard</h1>
+<button onclick="toggle('add-user', 'add-product')">Add User</button>
+<button onclick="toggle('add-product', 'add-user')">Add Product</button>
+<form method="POST" action="/admin/logout" style="display: inline"><button type="submit">Logout</button></form>
+<form id="add-user" method="POST" action="/admin/create/u" style="display: none">
+    <label for="username">Username:</label>
+    <input type="text" name="username">
+    <label for="username">Password:</label>
+    <input type="text" name="password">
+    <label for="username">Starting Balance:</label>
+    <input type="number" name="balance">
+    <input type="submit" value="Create">
+</form>
+<form id="add-product" method="POST" action="/admin/create/p" style="display: none">
+    <label for="name">Name:</label>
+    <input type="text" name="name">
+    <input type="submit" value="Create">
+</form>
+<h3>Products</h3>
+<ul>
+<% for(var i = 0; i < products.length; i++){ %>
+    <li><%= products[i].name %></li>
+<% } %>
+</ul>
+<h3>Users</h3>
+<ul>
+<% for(var i = 0; i < users.length; i++){ %>
+    <li>Name: <%= users[i].username %>, Pass: <%= users[i].password %>, Balance: <%= users[i].balance %></li>
+<% } %>
+</ul>
+<% include partials/footer %>

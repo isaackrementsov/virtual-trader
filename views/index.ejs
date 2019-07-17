@@ -1,3 +1,11 @@
 <% include partials/header %>
-
+<h1>Welcome to Virtual Trader</h1>
+<h3>Use the placeholder login values below</h3>
+<form method="POST" action="/login?type=admin">
+    <label for="username">Username:</label>
+    <input type="text" name="username" value="admin">
+    <label for="password">Password:</label>
+    <input type="text" name="password" value="admin123">
+    <input type="submit" value="Login">
+</form>
 <% include partials/footer %>

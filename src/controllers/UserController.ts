@@ -21,6 +21,23 @@ export default class UserController {
         }
     }
 
+    postLogout = (req: Request, res: Response) => {
+        req.session.admin = false;
+        res.redirect('/');
+    }
+
+    postCreate = async (req: Request, res: Response) => {
+        await this.userRepo.insert(new User(
+            req.body.username,
+            req.body.password,
+            false,
+            req.body.balance,
+            []
+        ));
+
+        res.redirect('/admin/home');
+    }
+
     constructor(){
         this.userRepo = getRepository(User);
     }

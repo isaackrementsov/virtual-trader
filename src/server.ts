@@ -2,6 +2,7 @@ import { createConnection } from 'typeorm';
 
 import app from './app';
 import routes from './server/routes';
+import init from './util/dbBootstrap';
 
 import Middleware from './util/Middleware';
 
@@ -12,6 +13,8 @@ createConnection().then(async connection => {
 
     let middleware : Middleware = new Middleware();
     app.use(middleware.auth);
+
+    await init();
 
     app.listen(app.get('port'), () => {
         console.log('App is running on localhost:%d in %s mode', app.get('port'), app.get('env'));
